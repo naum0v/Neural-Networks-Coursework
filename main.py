@@ -59,6 +59,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path(__file__).with_name("config.toml"))
     parser.add_argument("--data-dir", type=Path, help="Каталог с CSV соревнования")
+    parser.add_argument("--stage", choices=["check", "baselines"], default="check")
+    parser.add_argument("--output-dir", type=Path, default=Path("results/validation"))
     args = parser.parse_args()
     with args.config.open("rb") as config_file:
         config = tomllib.load(config_file)
@@ -68,6 +70,11 @@ def main() -> None:
     test = pd.read_csv(data_dir / "test.csv")
     submission = pd.read_csv(data_dir / "sample_submission.csv")
     validate_data(train, test, submission, config["id_column"], config["target"])
+    if args.stage == "baselines":
+        from baselines import evaluate
+
+        evaluate(train, config, args.output_dir)
+        return
 
     summary = {
         "competition": config["competition"],

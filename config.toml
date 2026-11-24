@@ -1,3 +1,8 @@
 competition = "playground-series-s4e9"
 id_column = "id"
 target = "price"
+
+[validation]
+folds = 5
+price_bins = 10
+seed = 42

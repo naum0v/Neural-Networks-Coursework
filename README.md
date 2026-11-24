@@ -45,3 +45,9 @@ python main.py --data-dir /путь/к/данным
 Команда сохраняет соответствие `id → fold` в `results/validation/folds.csv`. Его также можно скачать из результатов прогона Kaggle. SHA-256 файла — `0f091d0d267a4b69df7dff61995166f560e83b373ed78b3bb220f897b09c723e`.
 
 [Итоговые метрики](results/validation/baselines.csv) · [RMSE по фолдам](results/validation/rmse_by_fold.csv) · [Прогон на Kaggle](https://www.kaggle.com/code/naum0v7/used-car-prices-baselines)
+
+## Предобработка и классические регрессоры
+
+Команда `python main.py --stage classical` читает назначения фолдов из `results/validation/folds.csv`. Путь к скачанному файлу можно передать через `--folds-file`. Заполнение пропусков, кодирование, масштабирование и обучение моделей выполняются внутри каждого обучающего фолда. Общее RMSE считается по всем проверочным строкам.
+
+[Сравнение моделей и предобработки](results/classical/README.md) · [Прогон на Kaggle](https://www.kaggle.com/code/naum0v7/used-car-prices-classical)

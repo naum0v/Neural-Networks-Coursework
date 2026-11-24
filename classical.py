@@ -17,6 +17,8 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 
+from validation import load_folds
+
 NUMERIC = ["model_year", "milage"]
 
 
@@ -71,14 +73,9 @@ def evaluate(train: pd.DataFrame, config: dict, output: Path, folds_file: Path) 
     """Обучить модели на общих фолдах и сохранить ошибки и время."""
     key, target = config["id_column"], config["target"]
     settings = config["validation"]
-    assignments = pd.read_csv(folds_file).set_index(key)
     expected_folds = set(range(1, settings["folds"] + 1))
-    if (not assignments.index.is_unique or len(assignments) != len(train)
-            or not train[key].isin(assignments.index).all()
-            or set(assignments["fold"]) != expected_folds):
-        raise ValueError("Назначения фолдов не соответствуют обучающим данным.")
     rows = train.sort_values(key)
-    folds = assignments.loc[rows[key], "fold"].to_numpy()
+    folds = load_folds(rows, key, settings["folds"], folds_file)
     features, price = rows.drop(columns=[key, target]), rows[target].to_numpy()
     records = []
     for name, model, encoding, missing, scale in experiments(settings["seed"]):

@@ -6,3 +6,7 @@ target = "price"
 folds = 5
 price_bins = 10
 seed = 42
+
+[boosting]
+reference_year = 2024
+threads = 4

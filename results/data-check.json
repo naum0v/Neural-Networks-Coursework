@@ -1,0 +1,33 @@
+{
+  "competition": "playground-series-s4e9",
+  "data_dir": "/kaggle/input/competitions/playground-series-s4e9",
+  "pandas_version": "2.3.3",
+  "target": "price",
+  "files": {
+    "train.csv": {
+      "rows": 188533,
+      "columns": 13
+    },
+    "test.csv": {
+      "rows": 125690,
+      "columns": 12
+    },
+    "sample_submission.csv": {
+      "rows": 125690,
+      "columns": 2
+    }
+  },
+  "features": [
+    "brand",
+    "model",
+    "model_year",
+    "milage",
+    "fuel_type",
+    "engine",
+    "transmission",
+    "ext_col",
+    "int_col",
+    "accident",
+    "clean_title"
+  ]
+}

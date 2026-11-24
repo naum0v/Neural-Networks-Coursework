@@ -1,6 +1,7 @@
 __pycache__/
 .venv/
 .ipynb_checkpoints/
+eda-output/
 data/
 train.csv
 test.csv

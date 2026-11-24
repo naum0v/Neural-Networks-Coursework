@@ -1,0 +1,108 @@
+{
+  "rows": {
+    "train": 188533,
+    "test": 125690
+  },
+  "price": {
+    "mean": 43878.01617753921,
+    "quantiles": {
+      "0.0": 2000,
+      "0.01": 4000,
+      "0.25": 17000,
+      "0.5": 30825,
+      "0.75": 49900,
+      "0.95": 107900,
+      "0.99": 259500,
+      "0.999": 749950,
+      "1.0": 2954083
+    },
+    "nonpositive": 0,
+    "lower_iqr_limit": -32350,
+    "upper_iqr_limit": 99250,
+    "below_lower_limit": 0,
+    "above_upper_limit": 10880
+  },
+  "missing_pct": {
+    "fuel_type": {
+      "train": 2.696079731399808,
+      "test": 2.69154268438221
+    },
+    "accident": {
+      "train": 1.3005680703112983,
+      "test": 1.2984326517622724
+    },
+    "clean_title": {
+      "train": 11.360875814844086,
+      "test": 11.328665764977325
+    }
+  },
+  "constant_features": {
+    "train": [
+      "clean_title"
+    ],
+    "test": [
+      "clean_title"
+    ]
+  },
+  "duplicates": {
+    "train_repeated_features_after_first": 0,
+    "test_repeated_features_after_first": 0,
+    "train_repeated_features_and_price_after_first": 0,
+    "test_rows_matching_train_features": 0
+  },
+  "spearman": {
+    "model_year": {
+      "model_year": 1,
+      "milage": -0.738149591174392,
+      "price": 0.7271589916223162
+    },
+    "milage": {
+      "model_year": -0.738149591174392,
+      "milage": 1,
+      "price": -0.7427088236302167
+    },
+    "price": {
+      "model_year": 0.7271589916223162,
+      "milage": -0.7427088236302167,
+      "price": 1
+    }
+  },
+  "category_shift": {
+    "clean_title": {
+      "distance_pct": 0.03221004986675782,
+      "unseen_pct": 0
+    },
+    "accident": {
+      "distance_pct": 0.06633200626839486,
+      "unseen_pct": 0
+    },
+    "fuel_type": {
+      "distance_pct": 0.1526916089636176,
+      "unseen_pct": 0
+    },
+    "transmission": {
+      "distance_pct": 0.5194025230192303,
+      "unseen_pct": 0
+    },
+    "int_col": {
+      "distance_pct": 0.62153778217906,
+      "unseen_pct": 0
+    },
+    "brand": {
+      "distance_pct": 0.8198299945043391,
+      "unseen_pct": 0
+    },
+    "ext_col": {
+      "distance_pct": 0.8654521156184823,
+      "unseen_pct": 0
+    },
+    "engine": {
+      "distance_pct": 3.660347814563142,
+      "unseen_pct": 0.0031824329700055696
+    },
+    "model": {
+      "distance_pct": 5.354505210555414,
+      "unseen_pct": 0.0007956082425013924
+    }
+  }
+}

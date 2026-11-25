@@ -122,7 +122,7 @@ def prepare_fold(
 def train_fold(
     training: tuple[torch.Tensor, ...], validation: tuple[torch.Tensor, ...],
     cardinalities: list[int], settings: Settings, seed: int,
-) -> tuple[list[dict], float]:
+) -> tuple[list[dict], float, np.ndarray]:
     """Обучить заданное число эпох и сохранить проверочную кривую."""
     numeric, categorical, target = training
     device = target.device
@@ -154,7 +154,8 @@ def train_fold(
         model.eval()
         with torch.inference_mode():
             valid_num, valid_cat, valid_target = validation
-            residuals = model(valid_num, valid_cat).double() - valid_target.double()
+            predictions = model(valid_num, valid_cat).double()
+            residuals = predictions - valid_target.double()
             squared = float(residuals.square().sum().item() * PRICE_SCALE**2)
         rmse = np.sqrt(squared / len(valid_target))
         if not np.isfinite(rmse):
@@ -163,7 +164,7 @@ def train_fold(
             "epoch": epoch, "train_loss": float(epoch_loss.item() / len(target)),
             "rows": len(valid_target), "squared_error": squared, "rmse": rmse,
         })
-    return curves, perf_counter() - started
+    return curves, perf_counter() - started, predictions.cpu().numpy() * PRICE_SCALE
 
 
 def save_curve(curves: pd.DataFrame, winner: str, output: Path) -> None:
@@ -194,7 +195,7 @@ def evaluate(train: pd.DataFrame, config: dict, output: Path, folds_file: Path) 
     for fold in np.unique(folds):
         training, validation, cardinalities = prepare_fold(features, price, folds == fold, device)
         for name, settings in settings_by_name.items():
-            history, seconds = train_fold(
+            history, seconds, _ = train_fold(
                 training, validation, cardinalities, settings, config["validation"]["seed"] + int(fold),
             )
             curves.extend({"model": name, "fold": int(fold), **entry} for entry in history)

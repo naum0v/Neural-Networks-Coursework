@@ -65,3 +65,9 @@ python main.py --data-dir /путь/к/данным
 Команда `python main.py --stage mlp` сравнивает 14 конфигураций MLP на тех же пяти фолдах. PyTorch использует CUDA при её наличии. Результаты сохраняются в `results/mlp/`.
 
 [Сравнение конфигураций и кривые обучения](results/mlp/README.md) · [Прогон на Kaggle](https://www.kaggle.com/code/naum0v7/used-car-prices-mlp)
+
+## Ансамбли и анализ ошибок
+
+Команда `python main.py --stage ensemble` обучает CatBoost, случайный лес и MLP на фиксированных фолдах и проверяет четыре способа объединить их прогнозы. Для стекинга внутри каждой внешней обучающей выборки формируются три внутренних фолда. Чтобы воспроизвести расчёт в Kaggle, подключите данные соревнования и укажите файл фолдов этапа 3 через `--folds-file`. Для общей таблицы скрипт читает сохранённые в репозитории метрики этапов 3–6.
+
+[Разбор ансамблей и ошибок](results/ensemble/README.md) · [Общая таблица экспериментов](results/ensemble/all_models.csv) · [Запуск на Kaggle](https://www.kaggle.com/code/naum0v7/used-car-prices-ensembles)

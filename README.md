@@ -59,3 +59,9 @@ python main.py --data-dir /путь/к/данным
 Для каждой библиотеки сначала проверяются исходные признаки и четыре варианта их расширения. Затем на лучшем наборе проверяются два дополнительных профиля гиперпараметров. Сводка и ошибки отдельных фолдов сохраняются в `results/boosting/`.
 
 [Сравнение бустингов](results/boosting/README.md) · [CatBoost](https://www.kaggle.com/code/naum0v7/used-car-prices-catboost) · [LightGBM](https://www.kaggle.com/code/naum0v7/used-car-prices-lightgbm) · [XGBoost](https://www.kaggle.com/code/naum0v7/used-car-prices-xgboost)
+
+## Полносвязная нейросеть
+
+Команда `python main.py --stage mlp` сравнивает 14 конфигураций MLP на тех же пяти фолдах. PyTorch использует CUDA при её наличии. Результаты сохраняются в `results/mlp/`.
+
+[Сравнение конфигураций и кривые обучения](results/mlp/README.md) · [Прогон на Kaggle](https://www.kaggle.com/code/naum0v7/used-car-prices-mlp)

@@ -59,7 +59,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=Path(__file__).with_name("config.toml"))
     parser.add_argument("--data-dir", type=Path, help="Каталог с CSV соревнования")
-    parser.add_argument("--stage", choices=["check", "baselines", "classical", "boosting"], default="check")
+    parser.add_argument(
+        "--stage", choices=["check", "baselines", "classical", "boosting", "mlp"], default="check",
+    )
     parser.add_argument("--estimator", choices=["catboost", "lightgbm", "xgboost"])
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--folds-file", type=Path, default=Path("results/validation/folds.csv"))
@@ -89,6 +91,12 @@ def main() -> None:
             train, config, args.output_dir or Path("results/boosting"),
             args.folds_file, args.estimator,
         )
+        return
+
+    if args.stage == "mlp":
+        from neural import evaluate
+
+        evaluate(train, config, args.output_dir or Path("results/mlp"), args.folds_file)
         return
 
     summary = {

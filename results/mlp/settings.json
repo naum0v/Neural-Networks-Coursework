@@ -1,0 +1,200 @@
+{
+  "base": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "deep": {
+    "widths": [
+      128,
+      64,
+      32
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "wide": {
+    "widths": [
+      256
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "gelu": {
+    "widths": [
+      128
+    ],
+    "activation": "gelu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "batchnorm": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": true,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "dropout_10": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.1,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "dropout_25": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.25,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "adamw": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adamw",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "sgd": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "sgd",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "cosine": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": true,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "low_lr": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.001,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "small_batch": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 1024,
+    "epochs": 12,
+    "loss": "mse"
+  },
+  "longer": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 20,
+    "loss": "mse"
+  },
+  "huber": {
+    "widths": [
+      128
+    ],
+    "activation": "relu",
+    "batch_norm": false,
+    "dropout": 0.0,
+    "optimizer": "adam",
+    "learning_rate": 0.003,
+    "scheduler": false,
+    "batch_size": 2048,
+    "epochs": 12,
+    "loss": "huber"
+  }
+}
